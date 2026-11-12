@@ -24,6 +24,14 @@ log = logging.getLogger(__name__)
 USER_AGENT = "BlueprintBot/0.1 (independent portfolio research project; public data only)"
 DEFAULT_MIN_DELAY = 5.0  # seconds between requests to the same site
 
+# Documented public APIs whose robots.txt blocks all bots. An API is built for programs to
+# call, so its robots.txt is aimed at search-engine crawlers. Thomas approved skipping the
+# robots check for these hosts only (2026-11-12). Each entry points to the terms we follow
+# instead, and the polite delay still applies. Add a host only with Thomas's approval.
+DOCUMENTED_APIS: dict[str, str] = {
+    "archive-api.open-meteo.com": "https://open-meteo.com/en/terms",
+}
+
 
 class RobotsDisallowed(Exception):
     """The site's robots.txt asks bots not to fetch this URL, so we don't."""
@@ -78,6 +86,12 @@ class PoliteClient:
         self._last_request[site] = self._clock()
 
     def _robots_for(self, site: str) -> RobotFileParser:
+        if urlsplit(site).hostname in DOCUMENTED_APIS:
+            # Approved API (see DOCUMENTED_APIS): don't read robots.txt, allow every path.
+            parser = RobotFileParser()
+            parser.parse([])
+            self._robots[site] = parser
+            return parser
         if site in self._robots:
             return self._robots[site]
         parser = RobotFileParser()

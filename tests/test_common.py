@@ -75,6 +75,21 @@ def test_obeys_longer_crawl_delay():
     assert t.slept[-1] == 12
 
 
+def test_documented_api_skips_robots_but_still_waits():
+    t = FakeTime()
+    host = "https://archive-api.open-meteo.com"
+    with make_client(t, robots_txt="User-agent: *\nDisallow: /\n") as client:
+        client.get(f"{host}/v1/archive?a=1")
+        client.get(f"{host}/v1/archive?a=2")
+    assert t.slept == [5]  # robots.txt never fetched, but the polite gap is kept
+
+
+def test_other_sites_with_disallow_all_stay_blocked():
+    with make_client(FakeTime(), robots_txt="User-agent: *\nDisallow: /\n") as client:
+        with pytest.raises(RobotsDisallowed):
+            client.get("https://api.example.org/v1/data")
+
+
 def test_server_error_on_robots_means_blocked():
     with make_client(FakeTime(), robots_status=503) as client, pytest.raises(RobotsDisallowed):
         client.get("https://example.org/public")
