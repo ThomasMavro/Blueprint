@@ -42,6 +42,9 @@ Every data source Blueprint uses or considers, with what was checked and when.
 
 Not data sources, so not loaded into the warehouse. Checked for limits in Phase 0.
 
+**Decision (Thomas, 2026-11-12):** app on the Render free plan; data files in a free Hugging Face
+dataset, with GitHub releases as fallback. Hugging Face Spaces is out because a Dash app needs a paid plan.
+
 | Service | Use | Limits checked on | Findings |
 |---|---|---|---|
 | Hugging Face Spaces | Host the Dash app | 2026-11-12 | **Not free for Dash.** Docker and Gradio Spaces need a paid plan to create (PRO, $9/month, huggingface.co/pricing); free accounts get Static Spaces and up to 2 Gradio Spaces on ZeroGPU only (docs/hub/spaces-overview). Free CPU Basic = 2 vCPU, 16 GB RAM, 50 GB non-persistent disk; sleeps when unused |

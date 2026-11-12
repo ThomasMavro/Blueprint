@@ -170,7 +170,7 @@ Each layer only reads from the one above it, so a broken scraper never breaks th
 | App | Dash with Dash Mantine Components, Plotly charts | Professional multi-page UI without learning JavaScript |
 | Reports | Jinja2 templates + WeasyPrint to PDF | Branded briefs and partner reports from the same findings |
 | Quality | pytest, ruff, data tests on every table | Catches broken scrapers before bad data reaches the app |
-| Hosting | Free tier: Hugging Face Spaces or Render free plan for the app; data files in a free Hugging Face dataset or GitHub release | Shareable link for recruiters at £0; free-tier limits checked in Phase 0 |
+| Hosting | Free tier: Render free plan for the app; data files in a free Hugging Face dataset (GitHub release as fallback) | Shareable link for recruiters at £0. Decided 2026-11-12 after Phase 0 checks: Hugging Face Spaces needs PRO ($9/month) for a Dash app, so it is out; Render sleeps after 15 minutes idle (about 1 minute to wake) |
 
 **Core data model.**
 
