@@ -1,0 +1,16 @@
+# Data never goes into Git: it grows, and Git is built for text we edit.
+data/
+*.duckdb
+*.duckdb.wal
+*.parquet
+
+# Python leftovers
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets (API keys) — never commit
+.env

@@ -1,0 +1,43 @@
+# One file that describes the project: its name, Python version, the packages it needs,
+# and the settings for ruff and pytest. Install with:  pip install -e ".[dev]"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "blueprint"
+version = "0.0.1"
+description = "Independent commercial intelligence portfolio project on women's football (not affiliated with any club)."
+readme = "README.md"
+requires-python = ">=3.12"
+# Only what Phase 0 uses. Each later phase adds its own packages when it needs them.
+dependencies = [
+    "httpx>=0.27",          # HTTP client for polite scraping
+    "beautifulsoup4>=4.12", # HTML parsing
+    "duckdb>=1.1",          # the warehouse: one file, SQL
+    "pandas>=2.2",
+    "pyarrow>=17",          # lets pandas read and write Parquet
+]
+
+[project.optional-dependencies]
+# "dev" tools are only needed to work on the code, not to run it.
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# schema.sql is not a .py file, so we have to tell setuptools to include it.
+blueprint = ["models/*.sql"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/F: errors and unused code · I: import order · B: common bugs · UP: modern Python syntax
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
