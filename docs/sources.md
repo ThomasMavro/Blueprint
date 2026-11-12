@@ -44,7 +44,8 @@ Not data sources, so not loaded into the warehouse. Checked for limits in Phase 
 
 | Service | Use | Limits checked on | Findings |
 |---|---|---|---|
-| Hugging Face Spaces | Host the Dash app | | |
-| Render free plan | Host the Dash app (alternative) | | |
-| Hugging Face datasets | Store raw and warehouse data files | | |
-| GitHub releases | Store data files (alternative) | | |
+| Hugging Face Spaces | Host the Dash app | 2026-11-12 | **Not free for Dash.** Docker and Gradio Spaces need a paid plan to create (PRO, $9/month, huggingface.co/pricing); free accounts get Static Spaces and up to 2 Gradio Spaces on ZeroGPU only (docs/hub/spaces-overview). Free CPU Basic = 2 vCPU, 16 GB RAM, 50 GB non-persistent disk; sleeps when unused |
+| Render free plan | Host the Dash app (alternative) | 2026-11-12 | Free web service works for Dash. Spins down after 15 minutes with no traffic; about 1 minute to wake (loading page shown). 750 free instance hours per workspace per month; outbound bandwidth and build minutes capped. Free Postgres expires after 30 days (not needed: DuckDB file instead). Source: render.com/docs/free |
+| Hugging Face datasets | Store raw and warehouse data files | 2026-11-12 | Free account: public storage "best-effort" (no fixed cap, abuse limits apply); private storage 100 GB. Source: huggingface.co/docs/hub/storage-limits |
+| GitHub releases | Store data files (alternative) | 2026-11-12 | Each file under 2 GiB; up to 1,000 files per release; no limit on total size or bandwidth. Source: docs.github.com, About releases |
+| GitHub Actions | Scheduled collection jobs | 2026-11-12 | Standard GitHub-hosted runners are free in public repositories; private repositories draw on the plan's included minutes. Source: docs.github.com, GitHub Actions billing |
