@@ -1,4 +1,4 @@
-# Chelsea FC Women Commercial Intelligence Platform — Product Spec
+# docs
 
 Nov 11, 2026 · @Thomas
 
