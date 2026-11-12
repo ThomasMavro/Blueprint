@@ -120,7 +120,7 @@ All data is public or collected by scrapers you build; every source below must b
 | Fixtures, results, attendances | League and club match reports, FBref, Wikipedia season pages, Transfermarkt | Scraper + manual backfill for past seasons | After each match | Matchday, Home |
 | Kick-off context | Fixture lists, TV picks (BBC, Sky), weather history API, men's fixture list | Scraper + API | Weekly | Matchday |
 | Ticket prices | Club ticketing pages for each fixture | Scheduled snapshots (price over time) | Daily before matches | Matchday |
-| Sponsor portfolios | Club partner pages (WSL + European elite + Chelsea men), press releases | Scraper + curated table with category tags | Weekly | Partnerships |
+| Sponsor portfolios | Partnership announcements (FC Business RSS); manual entries by Thomas from club pages and press releases where needed (club sites bar bots, Phase 0 check) | RSS reader + curated table with category tags | Weekly | Partnerships |
 | Sponsorship deal news | Trade press (SportBusiness, SportsPro, FC Business), club news feeds | RSS or scraper + brand and category extraction | Daily | Partnerships |
 | Social accounts | YouTube Data API (official, free); Instagram, TikTok, X public profiles | API where official; otherwise weekly public snapshots | Weekly | Fanbase, Players |
 | Social posts | Club posts with captions, media and engagement counts | API or snapshot scraper, stored with images | Weekly | Partner value, Fanbase, Players |
