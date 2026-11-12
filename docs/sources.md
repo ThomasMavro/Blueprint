@@ -24,7 +24,7 @@ Every data source Blueprint uses or considers, with what was checked and when.
 | `ewf_database` | English Women's Football (EWF) Database | https://github.com/probjects/ewf-database | | 2026-11-12 | WSL matches 2011 to 2024–25 (2,540 rows incl. tier 2 from 2014); attendance on 75–100% of matches per season, none for 2020–21 (behind closed doors); 110 of 128 Chelsea home WSL matches have attendance; updated after each season | One CSV download per season | use | A (new) · Licence CC BY-SA 4.0 (README): cite "The English Women's Football (EWF) Database"; derived data stays CC BY-SA. File download from GitHub, not crawling. Suggested by Thomas |
 | `statsbomb_open` | StatsBomb open data (event data) | https://github.com/statsbomb/open-data | | 2026-11-12 | WSL 2018/19, 2019/20, 2020/21, 2023/24; also Liga F, Frauen-Bundesliga, Serie A Women 2023/24, NWSL 2018 and 2023, Euros 2022 and 2025, World Cups 2019 and 2023 | One-off download | use with limits | A (new) · README terms: credit StatsBomb as the data source and show their logo in published work. Full user agreement (LICENSE.pdf) not read yet. Match events only, no attendance |
 | `openfootball_pl` | openfootball Premier League fixtures (football.json) | https://github.com/openfootball/football.json | | 2026-11-12 | 2025–26 and 2026–27 checked (380 matches each); older seasons in the repo not checked | One JSON file per season | use | A (new) · Public domain ("use as you please with no restrictions"). Replaces `pl_fixtures` for clash dates |
-| `club_partner_pages` | Club partner pages (WSL + European elite) | | | | | | not checked | B · one URL per club, listed when checked |
+| `club_partner_pages` | Club partner pages (WSL + European elite) | | | 2026-11-12 | | | don't use | B · For automated collection: no club checked clearly allows it; most limit use to personal, non-commercial browsing and Spurs, PSG and Real Madrid ban scraping outright. Per-club findings in the "Club partner pages" table below. Manual or Wikipedia route pending Thomas's decision |
 | `sportbusiness` | SportBusiness news | https://www.sportbusiness.com | yes | | | | don't use | B · robots.txt allows general bots (Content-Signal: search=yes, ai-train=no, use=reference) but homepage and /feed/ both return a Cloudflare bot challenge (403, 2026-11-12). Terms not readable. Thomas can read articles himself (university access) and log deal facts by hand |
 | `sportspro` | SportsPro news | https://www.sportspro.com | yes | | | | don't use | B · www.sportspromedia.com now redirects here. robots.txt allows general bots, but homepage and /feed/ return 403 to our bot (2026-11-12). Terms not readable. Manual reading only |
 | `fc_business` | FC Business news | https://fcbusiness.co.uk | yes | | RSS feed shows latest news (newest item 2026-11-12); archive depth not checked | 1 request / 5 s; RSS once a day | use with limits | B · Moved from www.fcbusiness.co.uk. RSS at /feed/ works. No terms page found (only /privacy-policy/), so terms_checked_on left blank. Keep to headlines, dates and links; no copying article text |
@@ -37,6 +37,34 @@ Every data source Blueprint uses or considers, with what was checked and when.
 | `sportsdatastack` | Sports Data Stack (directory of football data sources) | https://sportsdatastack.com/leagues/wsl/ | yes | | Directory, not data | Occasional manual look | use with limits | B · robots.txt allows all. No terms page found. Use only to discover sources: its listings (/data/listings.csv, read 2026-11-12) name FotMob, Opta Analyst, football-data.org, API-Football, FootyStats and others for WSL; each needs its own check before use. Suggested by Thomas |
 | `wfdata` | Women's Football Data (wfdata.co.uk) | https://wfdata.co.uk/ | yes | | | | don't use | B · Consultancy site, no public dataset; "All rights reserved". robots.txt absent (404). Offers attendance and audience data to clubs and journalists via contact. Option: Thomas gets in touch. Suggested by Thomas |
 | `companies_house` | Companies House API (annual accounts) | https://developer.company-information.service.gov.uk | yes | 2026-11-12 | Filing history per company (depth per company not checked) | 600 requests per 5 minutes (developer guidelines); 429 if exceeded | use | B · Official free API; needs a free key (to be saved as a network secret, never in code). robots.txt absent (404 = allowed). Site footer: Crown copyright |
+
+## Club partner pages (checked 2026-11-12)
+
+Detail for the `club_partner_pages` row. Not loaded into the warehouse. "Manual only" means
+the terms limit use to personal, non-commercial viewing, so no bot collection; facts could
+still be noted by hand if Thomas approves.
+
+| Club | Peer set | Partner page | robots.txt | Terms finding | Verdict for bots |
+|---|---|---|---|---|---|
+| Arsenal | WSL | https://www.arsenal.com/the-club/sponsors-partners | allows | Terms of use: personal, non-commercial use on one device; no reproduction or public use | manual only |
+| Aston Villa | WSL | not linked from homepage | allows | Acceptable use policy: personal use, not for commercial gain; no copying | manual only |
+| Birmingham City | WSL | not found (JavaScript site) | allows | No terms link found, even after rendering | not checked |
+| Brighton | WSL | not found | allows | No terms link found | not checked |
+| Charlton | WSL | not checked | | Site redirects to www.cafc.co.uk, a host not allowed yet | not checked |
+| Crystal Palace | WSL | https://www.cpfc.co.uk/information/partners/ | allows | No terms link found | not checked |
+| Everton | WSL | not linked from homepage | allows | 7.2: extracts for personal, non-commercial use only | manual only |
+| Liverpool | WSL | not linked (homepage logos point to partners' own sites) | allows | Terms page read; no scraping or commercial clause found in its static text (may be incomplete) | not checked |
+| London City Lionesses | WSL | https://www.londoncitylionesses.com/partners | allows | No terms link found | not checked |
+| Manchester City | WSL | | allows | Homepage returns a Cloudflare bot challenge (403) | don't use |
+| Manchester United | WSL | per-partner pages, e.g. https://www.manutd.com/en/partners/global/adidas | allows | Terms page returns a Cloudflare 403 to our bot; not read | not checked |
+| Tottenham Hotspur | WSL | https://www.tottenhamhotspur.com/the-club/partners/ | allows | 4.6.3 bans "extracting, scraping, crawling or collecting data" by bots | don't use |
+| West Ham | WSL | not linked from homepage | allows | 2.1.3: no copying except for personal, non-commercial use | manual only |
+| Barcelona | European elite | https://www.fcbarcelona.com/en/club/partners | allows | Legal notice: private, non-profit use only; no reproduction without written authorisation | manual only |
+| OL Lyonnes | European elite | not found | allows | Mentions légales: any reproduction, total or partial, forbidden | manual only |
+| Bayern Munich | European elite | | | Akamai blocks our bot, even robots.txt (403) | don't use |
+| VfL Wolfsburg | European elite | not found | none (404) | No terms link found | not checked |
+| Real Madrid | European elite | https://www.realmadrid.com/en-US/the-club/sponsors | allows | Legal notice bans screen scraping and systematic extraction "whether manually or by means of bots" | don't use (manual too) |
+| Paris Saint-Germain | European elite | not linked from homepage | allows | Legal notice bans "data mining, scraping" | don't use |
 
 ## Hosting free tiers (priority C)
 

@@ -102,6 +102,7 @@ An optional LLM layer can rewrite findings for tone and draft the weekly brief, 
 - **Home:** the five top findings across modules, a KPI strip (average attendance, occupancy, follower growth, engagement rate, partner count, wages-to-revenue ratio) with peer rank, and what changed this week.
 - **Module pages:** findings at the top, then two or three signature views, then a full data table with export.
 - **Global controls:** season, competition and peer set (WSL, European elite, custom), always visible.
+  European elite = Barcelona, OL Lyonnes, Bayern Munich, VfL Wolfsburg, Real Madrid, Paris Saint-Germain (Thomas, 2026-11-12).
 - **Entity pages:** one page per club, partner, brand and player, so a user can search "Rimmel" or "Arsenal" and see everything.
 
 **Outputs.** A weekly commercial brief (PDF and email-ready text), partner renewal reports and a target-brand pack, all generated from the same findings.
