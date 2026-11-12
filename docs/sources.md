@@ -33,6 +33,7 @@ Every data source Blueprint uses or considers, with what was checked and when.
 | `tiktok` | TikTok public profiles | https://www.tiktok.com | | | | | not checked | B · spec's biggest risk |
 | `x` | X public profiles | https://x.com | | | | | not checked | B · spec's biggest risk |
 | `google_trends` | Google Trends (via pytrends) | https://trends.google.com | | | | | not checked | B · unofficial library |
+| `chelsea_prices_manual` | Chelsea FC Women ticket prices 2026/27 (manual entry by Thomas) | | | | 2026/27 season prices only (one snapshot, 2026-11-12) | Manual, when prices change | use | A (new) · Recorded by hand because `chelsea_fc` bans scraping. Raw record: docs/manual_sources/chelsea_ticket_prices_2026-27.md. Source URL to be confirmed by Thomas |
 | `sportsdatastack` | Sports Data Stack, WSL pages | https://sportsdatastack.com/leagues/wsl/ | | | | | not checked | B · suggested by Thomas; host not allowed yet |
 | `wfdata` | WF Data | https://wfdata.co.uk/ | | | | | not checked | B · suggested by Thomas; host not allowed yet |
 | `companies_house` | Companies House API (annual accounts) | https://developer.company-information.service.gov.uk | | | | | not checked | B · free, needs a free key |
