@@ -2,7 +2,8 @@
 
 - **source_id:** `chelsea_prices_manual` (see docs/sources.md)
 - **Provided by:** Thomas, pasted into the build session on 2026-11-12
-- **Original page:** chelseafc.com ticketing information (exact URL to be confirmed by Thomas)
+- **Original page:** https://www.chelseafc.com/en/ticket-prices-chelsea-women (official club page;
+  URL given by Thomas 2026-11-12, copied by hand, not fetched by a bot)
 - **Why manual:** chelseafc.com terms forbid automated scraping (register row `chelsea_fc`),
   so prices are recorded by hand from the public page instead.
 - **Rule:** this file is the raw record. Do not edit figures; if prices change, add a new
