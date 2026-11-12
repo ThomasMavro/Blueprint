@@ -12,7 +12,7 @@ Every data source Blueprint uses or considers, with what was checked and when.
 
 | source_id | name | url | robots_ok | terms_checked_on | history_depth | polite_rate | verdict | notes |
 |---|---|---|---|---|---|---|---|---|
-| `wsl_official` | WSL official site (fixtures, results, attendances) | | | | | | not checked | A · official site URL to confirm |
+| `wsl_official` | WSL official site (fixtures, results, attendances) | https://www.wslfootball.com | | | | | not checked | A · fixtures at /fixtures/index (from Thomas) |
 | `fbref` | FBref women's match logs | https://fbref.com | | | | | not checked | A · known strict bot rate limits |
 | `wikipedia` | Wikipedia WSL season pages | https://en.wikipedia.org | | | | | not checked | A · open licence; long history |
 | `transfermarkt` | Transfermarkt attendances | https://www.transfermarkt.com | | | | | not checked | A · terms may forbid scraping |
